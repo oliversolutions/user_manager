@@ -5,16 +5,85 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.oliversolutions.dev.usermanager.core.base.BaseViewModel
 import com.oliversolutions.dev.usermanager.features.user.domain.entities.User
-import com.oliversolutions.dev.usermanager.features.user.domain.usescases.GetUsers
 import kotlinx.coroutines.launch
 import com.oliversolutions.dev.usermanager.core.error.Result
+import com.oliversolutions.dev.usermanager.features.user.domain.usescases.*
 
-class UserViewModel(application: Application, private val usecase: GetUsers) : BaseViewModel(application) {
+class UserViewModel(
+    application: Application,
+    private val usecase: GetUsers,
+    private val usecase2: GetUser,
+    private val usecase3: DeleteUser,
+    private val usecase4: UpdateUser,
+    private val usecase5: CreateUser,
+
+    ) : BaseViewModel(application) {
     val users = MutableLiveData<List<User>>()
+    val user = MutableLiveData<User>()
 
     init {
         getUsers()
     }
+
+    fun getUser(id: String) {
+        showLoading.value = true
+        viewModelScope.launch {
+            val result = usecase2.call(id)
+            when (result) {
+                is Result.Success<*> -> {
+                    val data = result.data as User
+                    user.value = data
+                }
+                is Result.Error ->
+                    showSnackBar.value = result.message
+            }
+        }
+    }
+
+    fun deleteUser(id: String) {
+        showLoading.value = true
+        viewModelScope.launch {
+            val result = usecase3.call(id)
+            when (result) {
+                is Result.Success<*> -> {
+                    showSnackBar.value = "User has been deleted"
+                }
+                is Result.Error ->
+                    showSnackBar.value = result.message
+            }
+        }
+    }
+
+    fun updateUser(user: User) {
+        showLoading.value = true
+        viewModelScope.launch {
+            val result = usecase4.call(user)
+            when (result) {
+                is Result.Success<*> -> {
+                    showSnackBar.value = "User has been updated"
+                }
+                is Result.Error ->
+                    showSnackBar.value = result.message
+            }
+        }
+    }
+
+    fun createUser(user: User) {
+        showLoading.value = true
+        viewModelScope.launch {
+            val result = usecase5.call(user)
+            when (result) {
+                is Result.Success<*> -> {
+                    showSnackBar.value = "User has been created"
+                }
+                is Result.Error ->
+                    showSnackBar.value = result.message
+            }
+        }
+    }
+
+
+
 
     private fun getUsers() {
         showLoading.value = true

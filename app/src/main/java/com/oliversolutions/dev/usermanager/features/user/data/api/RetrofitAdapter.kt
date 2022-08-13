@@ -7,6 +7,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 object RetrofitAdapter {
+    val headers = mapOf(
+        "content-type" to "application/json"
+    )
     private val userRetrofit: Retrofit
     private val moshi: Moshi
     const val API_URL = "https://hello-world.innocv.com/"

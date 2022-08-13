@@ -5,7 +5,7 @@ import com.oliversolutions.dev.usermanager.features.user.data.api.RetrofitAdapte
 import com.oliversolutions.dev.usermanager.features.user.data.datasources.UserRemoteDataSource
 import com.oliversolutions.dev.usermanager.features.user.data.repositories.UserRepositoryImpl
 import com.oliversolutions.dev.usermanager.features.user.domain.repositories.UserRepository
-import com.oliversolutions.dev.usermanager.features.user.domain.usescases.GetUsers
+import com.oliversolutions.dev.usermanager.features.user.domain.usescases.*
 import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UserViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -21,10 +21,20 @@ class App: Application() {
             viewModel {
                 UserViewModel(
                     get(),
-                    get() as GetUsers
+                    get() as GetUsers,
+                    get() as GetUser,
+                    get() as DeleteUser,
+                    get() as UpdateUser,
+                    get() as CreateUser
                 )
             }
+
             single { GetUsers(get()) }
+            single { GetUser(get()) }
+            single { DeleteUser(get()) }
+            single { UpdateUser(get()) }
+            single { CreateUser(get()) }
+
             single { UserRemoteDataSource(get()) }
             single { RetrofitAdapter }
             single { UserRepositoryImpl(get()) }
@@ -33,9 +43,6 @@ class App: Application() {
         startKoin {
             androidContext(this@App)
             modules(listOf(myModule))
-
-
         }
-
     }
 }

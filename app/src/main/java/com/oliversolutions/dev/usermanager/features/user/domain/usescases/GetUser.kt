@@ -6,15 +6,13 @@ import com.oliversolutions.dev.usermanager.features.user.data.models.asDomainMod
 import com.oliversolutions.dev.usermanager.features.user.data.repositories.UserRepositoryImpl
 import com.oliversolutions.dev.usermanager.features.user.domain.entities.User
 
-class GetUsers(private val userRepository: UserRepositoryImpl) {
-    suspend fun call() : Result<List<User>> {
-        val result = userRepository.getUsers()
+class GetUser(private val userRepository: UserRepositoryImpl) {
+    suspend fun call(id: String): Result<User> {
+        val result = userRepository.getUser(id)
         when (result) {
             is Result.Success<*> -> {
-                val data = result.data as List<UserModel>
-                return Result.Success(data.map {
-                    it.asDomainModel()
-                })
+                val data = result.data as UserModel
+                return Result.Success(data.asDomainModel())
             }
             is Result.Error -> return result
         }
