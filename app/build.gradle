@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -29,6 +30,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
 }
 
 dependencies {
@@ -37,7 +43,45 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.firebase:protolite-well-known-types:18.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.5.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Coroutines
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+
+    // Retrofit and moshi
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$converterMoshiVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$converterMoshiVersion"
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+
+// Koin Core features
+    implementation "io.insert-koin:koin-core:$koinVersion"
+// Koin Test features
+    testImplementation "io.insert-koin:koin-test:$koinVersion"
+
+    // Koin for JUnit 4
+    testImplementation "io.insert-koin:koin-test-junit4:$koinVersion"
+// Koin for JUnit 5
+    testImplementation "io.insert-koin:koin-test-junit5:$koinVersion"
+
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:$koinVersion"
+// No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
+
+// Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:$koinVersion"
+// Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:$koinVersion"
+// Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:$koinVersion"
+
+
 }
