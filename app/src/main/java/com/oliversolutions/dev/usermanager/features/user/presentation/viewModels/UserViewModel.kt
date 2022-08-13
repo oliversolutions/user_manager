@@ -9,23 +9,16 @@ import kotlinx.coroutines.launch
 import com.oliversolutions.dev.usermanager.core.error.Result
 import com.oliversolutions.dev.usermanager.features.user.domain.usescases.*
 
-class UserViewModel(
-    application: Application,
-    private val usecase: GetUsers,
-    private val usecase2: GetUser,
-    private val usecase3: DeleteUser,
-    private val usecase4: UpdateUser,
-    private val usecase5: CreateUser,
+class UserViewModel(application: Application, private val usecase: GetUsers) : BaseViewModel(application) {
 
-    ) : BaseViewModel(application) {
     val users = MutableLiveData<List<User>>()
     val user = MutableLiveData<User>()
 
     init {
-        getUsers()
+        setUsers()
     }
 
-    fun getUser(id: String) {
+    /*fun getUser(id: String) {
         showLoading.value = true
         viewModelScope.launch {
             val result = usecase2.call(id)
@@ -80,17 +73,15 @@ class UserViewModel(
                     showSnackBar.value = result.message
             }
         }
-    }
+    }*/
 
-
-
-
-    private fun getUsers() {
+    private fun setUsers() {
         showLoading.value = true
         viewModelScope.launch {
             val result = usecase.call()
             when (result) {
                 is Result.Success<*> -> {
+                    showLoading.postValue(false)
                     val data = result.data as List<User>
                     users.value = data
                 }

@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Oliver/Documents/Oliver/Android nanodegree/User manager/app/src/main/res/drawable/bottom_border.xml" value="0.1" />
+        <entry key="..\:/Users/Oliver/Documents/Oliver/Android nanodegree/User manager/app/src/main/res/drawable/layout_with_border.xml" value="0.132" />
         <entry key="..\:/Users/Oliver/Documents/Oliver/Android nanodegree/User manager/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Oliver/Documents/Oliver/Android nanodegree/User manager/app/src/main/res/layout/fragment_user_view_item.xml" value="0.322463768115942" />
         <entry key="..\:/Users/Oliver/Documents/Oliver/Android nanodegree/User manager/app/src/main/res/layout/fragment_users.xml" value="0.25" />
+        <entry key="..\:/Users/Oliver/Documents/Oliver/Android nanodegree/User manager/app/src/main/res/layout/user_view_item.xml" value="0.2" />
         <entry key="..\:/Users/Oliver/Documents/Oliver/Android nanodegree/User manager/app/src/main/res/layout/users_fragment.xml" value="0.322463768115942" />
       </map>
     </option>

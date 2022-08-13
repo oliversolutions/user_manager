@@ -21,11 +21,7 @@ class App: Application() {
             viewModel {
                 UserViewModel(
                     get(),
-                    get() as GetUsers,
-                    get() as GetUser,
-                    get() as DeleteUser,
-                    get() as UpdateUser,
-                    get() as CreateUser
+                    get() as GetUsers
                 )
             }
 

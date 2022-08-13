@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">User manager</string>
+    <string name="id">Id:</string>
+    <string name="birthday">Birthday:</string>
 </resources>
