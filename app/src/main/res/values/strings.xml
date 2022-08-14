@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">User manager</string>
     <string name="id">Id:</string>
-    <string name="birthday">Birthday:</string>
+    <string name="birthdate">Birthdate:</string>
+    <string name="username">Username</string>
+    <string name="update">Update</string>
+    <string name="create">Create</string>
+    <string name="user_cannot_be_empty">Username cannot be empty</string>
+    <string name="no_data">No data</string>
 </resources>

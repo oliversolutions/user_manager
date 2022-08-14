@@ -6,6 +6,8 @@ import com.oliversolutions.dev.usermanager.features.user.data.datasources.UserRe
 import com.oliversolutions.dev.usermanager.features.user.data.repositories.UserRepositoryImpl
 import com.oliversolutions.dev.usermanager.features.user.domain.repositories.UserRepository
 import com.oliversolutions.dev.usermanager.features.user.domain.usescases.*
+import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.NewUserViewModel
+import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UserDetailViewModel
 import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UserViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -22,6 +24,21 @@ class App: Application() {
                 UserViewModel(
                     get(),
                     get() as GetUsers
+                )
+            }
+
+            viewModel {
+                UserDetailViewModel(
+                    get(),
+                    get() as UpdateUser,
+                    get() as DeleteUser
+                )
+            }
+
+            viewModel {
+                NewUserViewModel(
+                    get(),
+                    get() as CreateUser
                 )
             }
 

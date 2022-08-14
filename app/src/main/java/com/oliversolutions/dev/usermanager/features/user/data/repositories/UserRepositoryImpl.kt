@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-
 class UserRepositoryImpl(
     private val userRemoteDataSource: UserRemoteDataSource,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : UserRepository {
@@ -21,7 +20,7 @@ class UserRepositoryImpl(
         return@withContext userRemoteDataSource.getUser(id)
     }
 
-    override suspend fun deleteUser(id: String): Result<Boolean> = withContext(ioDispatcher)  {
+    override suspend fun deleteUser(id: Int): Result<Boolean> = withContext(ioDispatcher)  {
         return@withContext userRemoteDataSource.deleteUser(id)
     }
 

@@ -1,4 +1,4 @@
-package com.oliversolutions.dev.usermanager.features.user.presentation
+package com.oliversolutions.dev.usermanager.features.user.presentation.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oliversolutions.dev.usermanager.databinding.UserViewItemBinding
 import com.oliversolutions.dev.usermanager.features.user.domain.entities.User
 
-class UserGridAdapter(val onClickListener: OnClickListener) :
+class UserGridAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<User, UserGridAdapter.AsteroidViewHolder>(DiffCallback) {
 
     class OnClickListener(val clickListener: (asteroid: User) -> Unit) {

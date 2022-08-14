@@ -14,7 +14,7 @@ interface UserApi {
     suspend fun getUser(@Path("id") id: String): UserModel
 
     @DELETE("/api/User/{id}")
-    suspend fun deleteUser(@Path("id") id: String)
+    suspend fun deleteUser(@Path("id") id: Int)
 
     @POST("/api/User")
     suspend fun updateUser(@Body requestBody: RequestBody)
