@@ -30,7 +30,7 @@ class UserRepositoryImplTest {
             UserModel(34, "manolo", "2022-08-14T20:45:00")
         )
     }
-    
+
     @Test
     fun deleteUser_Success() = runBlocking {
         /* Given */
