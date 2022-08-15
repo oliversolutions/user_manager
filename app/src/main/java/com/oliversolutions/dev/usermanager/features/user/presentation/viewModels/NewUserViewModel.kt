@@ -26,7 +26,7 @@ class NewUserViewModel(
                 }
                 is Result.Error -> {
                     showSnackBar.value = app.getString(R.string.unexpected_error)
-                    Log.i(javaClass.simpleName, result.message)
+                    Log.i(NewUserViewModel::class.java.simpleName, result.message)
                 }
             }
         }

@@ -27,7 +27,7 @@ class UserDetailViewModel(
                 }
                 is Result.Error -> {
                     showSnackBar.value = app.getString(R.string.unexpected_error)
-                    Log.i(javaClass.simpleName, result.message)
+                    Log.i(UserDetailViewModel::class.java.simpleName, result.message)
                 }
             }
         }
@@ -42,7 +42,8 @@ class UserDetailViewModel(
                 }
                 is Result.Error -> {
                     showSnackBar.value = app.getString(R.string.unexpected_error)
-                    Log.i(javaClass.simpleName, result.message)
+                    Log.i(UserDetailViewModel::class.java.simpleName, result.message)
+
                 }
             }
         }
