@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/userDetailFragment"
         android:name="com.oliversolutions.dev.usermanager.features.user.presentation.fragments.UserDetailFragment"
-        android:label="Edit user">
+        android:label="@string/edit_user">
         <argument
             android:name="user"
             app:argType="com.oliversolutions.dev.usermanager.features.user.domain.entities.User" />
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/newUserFragment"
         android:name="com.oliversolutions.dev.usermanager.features.user.presentation.fragments.NewUserFragment"
-        android:label="Create user">
+        android:label="@string/create_user">
         <action
             android:id="@+id/action_newUserFragment_to_usersFragment"
             app:destination="@id/usersFragment" />

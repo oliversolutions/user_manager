@@ -6,7 +6,7 @@ import com.oliversolutions.dev.usermanager.features.user.data.repositories.UserR
 import com.oliversolutions.dev.usermanager.features.user.domain.entities.User
 import com.oliversolutions.dev.usermanager.features.user.domain.entities.asDataModel
 
-class CreateUser(private val userRepository: UserRepositoryImpl) {
+class CreateUser(private val userRepository: UserRepositoryImpl)  {
     suspend fun call(user: User): Result<Boolean> {
         return userRepository.createUser(Gson().toJson(user.asDataModel()))
     }

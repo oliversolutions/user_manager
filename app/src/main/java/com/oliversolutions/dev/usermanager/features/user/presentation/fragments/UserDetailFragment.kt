@@ -14,7 +14,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class UserDetailFragment : BaseFragment() {
 
     override val viewModel: UserDetailViewModel by viewModel()

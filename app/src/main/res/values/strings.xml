@@ -1,4 +1,8 @@
 <resources>
+    <string name="user_has_been_updated">User has been updated.</string>
+    <string name="unexpected_error">Unexpected error. Contact application owner.</string>
+    <string name="user_has_been_deleted">User has been deleted.</string>
+    <string name="user_has_been_created">User has been created.</string>
     <string name="app_name">User manager</string>
     <string name="id">Id:</string>
     <string name="birthdate">Birthdate:</string>
@@ -7,4 +11,6 @@
     <string name="create">Create</string>
     <string name="user_cannot_be_empty">Username cannot be empty</string>
     <string name="no_data">No data</string>
+    <string name="edit_user">Edit user</string>
+    <string name="create_user">Create user</string>
 </resources>

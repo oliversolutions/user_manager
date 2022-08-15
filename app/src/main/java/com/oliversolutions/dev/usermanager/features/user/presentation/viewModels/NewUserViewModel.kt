@@ -3,6 +3,7 @@ package com.oliversolutions.dev.usermanager.features.user.presentation.viewModel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.viewModelScope
+import com.oliversolutions.dev.usermanager.R
 import com.oliversolutions.dev.usermanager.core.base.BaseViewModel
 import com.oliversolutions.dev.usermanager.core.base.NavigationCommand
 import com.oliversolutions.dev.usermanager.features.user.domain.entities.User
@@ -12,16 +13,15 @@ import com.oliversolutions.dev.usermanager.core.error.Result
 import com.oliversolutions.dev.usermanager.features.user.presentation.fragments.NewUserFragmentDirections
 
 class NewUserViewModel(
-    application: Application,
+    val app: Application,
     private val usecase: CreateUser
-) : BaseViewModel(application) {
+) : BaseViewModel(app) {
 
     fun createUser(user: User) {
-        showLoading.value = true
         viewModelScope.launch {
             when (val result = usecase.call(user)) {
                 is Result.Success<*> -> {
-                    showSnackBar.value = "User has been created"
+                    showSnackBar.value = app.getString(R.string.user_has_been_created)
                     navigationCommand.value = NavigationCommand.To(NewUserFragmentDirections.actionNewUserFragmentToUsersFragment())
                 }
                 is Result.Error -> {

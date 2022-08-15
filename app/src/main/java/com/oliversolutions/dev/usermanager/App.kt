@@ -4,11 +4,10 @@ import android.app.Application
 import com.oliversolutions.dev.usermanager.features.user.data.api.RetrofitAdapter
 import com.oliversolutions.dev.usermanager.features.user.data.datasources.UserRemoteDataSource
 import com.oliversolutions.dev.usermanager.features.user.data.repositories.UserRepositoryImpl
-import com.oliversolutions.dev.usermanager.features.user.domain.repositories.UserRepository
 import com.oliversolutions.dev.usermanager.features.user.domain.usescases.*
 import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.NewUserViewModel
 import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UserDetailViewModel
-import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UserViewModel
+import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UsersViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -21,7 +20,7 @@ class App: Application() {
 
         val myModule = module {
             viewModel {
-                UserViewModel(
+                UsersViewModel(
                     get(),
                     get() as GetUsers
                 )

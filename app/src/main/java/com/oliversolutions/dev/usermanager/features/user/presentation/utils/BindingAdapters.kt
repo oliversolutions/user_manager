@@ -37,6 +37,11 @@ fun bindCurrentTime(textView: TextView, value: String?) {
     textView.text = dateFormat.format(Calendar.getInstance().time)
 }
 
+@BindingAdapter("beautyDate")
+fun bindBeautyDate(textView: TextView, value: DateTime) {
+    textView.text = value.getBeautyDate()
+}
+
 @BindingAdapter("android:fadeVisible")
 fun setFadeVisible(view: View, visible: Boolean? = true) {
     if (view.tag == null) {

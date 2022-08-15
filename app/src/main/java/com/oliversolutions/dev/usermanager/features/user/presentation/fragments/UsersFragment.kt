@@ -8,13 +8,13 @@ import com.oliversolutions.dev.usermanager.core.base.BaseFragment
 import com.oliversolutions.dev.usermanager.core.base.NavigationCommand
 import com.oliversolutions.dev.usermanager.databinding.FragmentUsersBinding
 import com.oliversolutions.dev.usermanager.features.user.presentation.utils.UserGridAdapter
-import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UserViewModel
+import com.oliversolutions.dev.usermanager.features.user.presentation.viewModels.UsersViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UsersFragment : BaseFragment() {
 
     private lateinit var binding: FragmentUsersBinding
-    override val viewModel: UserViewModel by viewModel()
+    override val viewModel: UsersViewModel by viewModel()
     private lateinit var userGridAdapter: UserGridAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -32,7 +32,7 @@ class UsersFragment : BaseFragment() {
             userGridAdapter.submitList(it)
         }
 
-        binding.createUser.setOnClickListener {
+        binding.createUserButton.setOnClickListener {
             viewModel.navigationCommand.value = NavigationCommand.To(UsersFragmentDirections.actionUsersFragmentToNewUserFragment())
         }
 

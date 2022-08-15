@@ -13,14 +13,20 @@ class DateTime(val dateString: String) {
     }
 
     fun getDate() : String {
-        val parser =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm", Locale.ENGLISH)
-        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+        val parser =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
         return formatter.format(parser.parse(dateString)!!)
     }
 
     fun getTime() : String {
-        val parser =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm", Locale.ENGLISH)
-        val formatter = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+        val parser =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
+        val formatter = SimpleDateFormat("HH:mm")
+        return formatter.format(parser.parse(dateString)!!)
+    }
+
+    fun getBeautyDate() : String {
+        val parser =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
         return formatter.format(parser.parse(dateString)!!)
     }
 }
