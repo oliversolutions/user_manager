@@ -9,7 +9,7 @@ object RetrofitAdapter {
     private val moshi: Moshi = Moshi.Builder()
        .add(KotlinJsonAdapterFactory())
        .build()
-    const val API_URL = "https://hello-world.innocv.com/"
+    private const val API_URL = "https://hello-world.innocv.com/"
     private val userRetrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(API_URL)

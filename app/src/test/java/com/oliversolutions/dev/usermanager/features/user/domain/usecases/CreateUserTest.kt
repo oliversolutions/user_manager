@@ -58,5 +58,4 @@ class CreateUserTest {
         Mockito.verify(mock).createUser(body)
         assertEquals(result, Result.Error("error found"))
     }
-
 }

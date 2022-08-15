@@ -2,7 +2,6 @@ package com.oliversolutions.dev.usermanager.features.user.data.api
 
 import com.oliversolutions.dev.usermanager.features.user.data.models.UserModel
 import okhttp3.RequestBody
-import org.json.JSONObject
 import retrofit2.http.*
 
 

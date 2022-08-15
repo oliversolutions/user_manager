@@ -25,7 +25,7 @@ class NewUserViewModel(
                     navigationCommand.value = NavigationCommand.To(NewUserFragmentDirections.actionNewUserFragmentToUsersFragment())
                 }
                 is Result.Error -> {
-                    showSnackBar.value = "Unexpected error. Contact application owner."
+                    showSnackBar.value = app.getString(R.string.unexpected_error)
                     Log.i(javaClass.simpleName, result.message)
                 }
             }

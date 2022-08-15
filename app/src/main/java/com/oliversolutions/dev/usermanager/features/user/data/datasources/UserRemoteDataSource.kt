@@ -53,6 +53,4 @@ class UserRemoteDataSource(private val retrofitAdapter: RetrofitAdapter) {
             Result.Error(e.localizedMessage!!)
         }
     }
-
-
 }

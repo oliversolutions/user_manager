@@ -1,7 +1,6 @@
 package com.oliversolutions.dev.usermanager.features.user.domain.entities
 
 import java.text.SimpleDateFormat
-import java.util.*
 
 class DateTime(val dateString: String) {
 
