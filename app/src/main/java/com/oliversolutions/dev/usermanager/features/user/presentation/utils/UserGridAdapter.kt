@@ -9,13 +9,13 @@ import com.oliversolutions.dev.usermanager.databinding.UserViewItemBinding
 import com.oliversolutions.dev.usermanager.features.user.domain.entities.User
 
 class UserGridAdapter(private val onClickListener: OnClickListener) :
-    ListAdapter<User, UserGridAdapter.AsteroidViewHolder>(DiffCallback) {
+    ListAdapter<User, UserGridAdapter.UserViewHolder>(DiffCallback) {
 
-    class OnClickListener(val clickListener: (asteroid: User) -> Unit) {
-        fun onClick(asteroid: User) = clickListener(asteroid)
+    class OnClickListener(val clickListener: (user: User) -> Unit) {
+        fun onClick(user: User) = clickListener(user)
     }
 
-    class AsteroidViewHolder(private var binding: UserViewItemBinding) :
+    class UserViewHolder(private var binding: UserViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
             binding.user = user
@@ -34,8 +34,8 @@ class UserGridAdapter(private val onClickListener: OnClickListener) :
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AsteroidViewHolder {
-        return AsteroidViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+        return UserViewHolder(
             UserViewItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -44,7 +44,7 @@ class UserGridAdapter(private val onClickListener: OnClickListener) :
         )
     }
 
-    override fun onBindViewHolder(holder: AsteroidViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = getItem(position)
         holder.bind(user)
         holder.itemView.setOnClickListener {
